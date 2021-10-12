@@ -11,6 +11,7 @@ source:
   sha256: 12ce54b1392ed45a82dc6cea85ee5f7e33630556e82488f57e37a22482c8275d
 
 build:
+  skip: True   # [py<36]
   number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
@@ -25,6 +26,11 @@ requirements:
 test:
   imports:
     - korean_lunar_calendar
+  requires:
+    - python <3.10
+    - pip
+  commands:
+    - pip check
 
 about:
   home: https://github.com/usingsky/korean_lunar_calendar_py
@@ -32,6 +38,7 @@ about:
   license: MIT
   license_file: LICENSE
   dev_url: https://github.com/usingsky/korean_lunar_calendar_py
+  doc_url: https://github.com/usingsky/korean_lunar_calendar_py
 
 extra:
   recipe-maintainers:
