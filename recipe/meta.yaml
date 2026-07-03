@@ -1,17 +1,18 @@
 {% set name = "korean_lunar_calendar" %}
-{% set version = "0.3.1" %}
+{% set version = "0.4.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: eb2c485124a061016926bdea6d89efdf9b9fdbf16db55895b6cf1e5bec17b857
+  sha256: be56f27bc0594fdbbdf7bbe00f504a9f929a31e311bd7d9bb93561b645afade7
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  skip: true  # [py<36]
 
 requirements:
   host:
